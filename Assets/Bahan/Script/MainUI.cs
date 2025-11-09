@@ -39,8 +39,25 @@ public class MainUI : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
             //action menurut button
-            cgs[type].DOFade(1, 1);
-            cgs[type].blocksRaycasts = true;
+            switch (type)
+            {
+                case 0:
+                    cgs[0].gameObject.SetActive(true);
+
+                    break;
+                case 1:
+                    cgs[1].DOFade(1, 1);
+                    cgs[1].blocksRaycasts = true;
+                    break;
+                case 2:
+
+                    break;
+                default:
+                    cgs[2].DOFade(1, 1);
+                    cgs[2].blocksRaycasts = true;
+                    break;
+            }
+
         }
         StartCoroutine(T1());
     }

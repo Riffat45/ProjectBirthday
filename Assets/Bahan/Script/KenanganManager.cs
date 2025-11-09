@@ -8,18 +8,16 @@ public class KenanganManager : MonoBehaviour
     private void OnEnable()
     {
         cg = GetComponent<CanvasGroup>();
-        print("watehel");
         Transition();
     }
 
     void Transition()
     {
         cg.DOFade(1, 1).OnComplete(() =>
-        {
-            print("watehel23235");
+        { 
             cg.DOFade(1, 1).OnComplete(() =>
             {
-                Viewport.DOScale(1, 2).SetEase(Ease.InOutCubic);
+                Viewport.DOScale(1, 3).SetEase(Ease.InOutCubic);
             });
         });
     }
