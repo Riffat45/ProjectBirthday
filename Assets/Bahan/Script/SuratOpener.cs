@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class SuratOpener : MonoBehaviour
 {
+    public static SuratOpener Instance { get; private set; }
     public List<Surat> ListSurat;
     public bool Read;
     public bool isReading;
+
+    int currentIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        while(Read == true && isReading == false)
+        while (Read == true && isReading == false)
         {
-            Instantiate(ListSurat[0], transform);
+            GameObject instance = Instantiate(ListSurat[currentIndex].PrefabTemplate.gameObject, transform);
+            SuratCloser.instance.current = instance.GetComponent<SuratObject>();
+            instance.GetComponent<SuratObject>().SetText(ListSurat[currentIndex].Paragraph.text);
             isReading = true;
         }
 
@@ -26,7 +31,14 @@ public class SuratOpener : MonoBehaviour
 
     public void Delete()
     {
-        ListSurat.Remove(ListSurat[0]);
+        Destroy(SuratCloser.instance.current.gameObject);
+        currentIndex++;
+        if (currentIndex == ListSurat.Count)
+        {
+            Read = false;
+            MainUI.instance.Recover();
+            currentIndex = 0;
+        }
         isReading = false;
     }
 }

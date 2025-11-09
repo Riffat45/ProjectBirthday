@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c92b8e584538747b3bd9e17c9acb5a, type: 3}
   m_Name: Surat
   m_EditorClassIdentifier: Assembly-CSharp::Surat
-  Paragraph: {fileID: 4900000, guid: d82c1b31c7e74239bff1220585707d2b, type: 3}
-  PrefabTemplate: {fileID: 0}
+  Paragraph: {fileID: 4900000, guid: 295084ec07219b24da76123fd7a38a5a, type: 3}
+  PrefabTemplate: {fileID: 8532732971871544737, guid: b02ccebc85e7c4e49b6d91345c568461, type: 3}
